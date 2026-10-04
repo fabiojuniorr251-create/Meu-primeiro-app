@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu App</title>
+<style>
+body{font-family:Arial;text-align:center;padding:15px;background:#f0f2f5}
+.card{background:white;padding:20px;border-radius:15px;max-width:400px;margin:20px auto;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+button{background:#111;color:white;border:none;padding:14px;border-radius:10px;width:100%;font-size:16px;margin-top:10px}
+input{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>🚀 Meu App no Ar!</h2>
+<p>Digite seu nome para entrar</p>
+<input id="nome" placeholder="Seu nome">
+<button onclick="entrar()">Entrar no App</button>
+<p id="msg"></p>
+</div>
+<script>
+function entrar(){
+let n=document.getElementById('nome').value;
+document.getElementById('msg').innerHTML="Bem-vindo, "+n+"! 🎉<br>Seu app já funciona!";
+}
+</script>
+</body>
+</html>
