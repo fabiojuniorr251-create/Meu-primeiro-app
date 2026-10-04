@@ -3,28 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu App</title>
-<link rel="icon" href="IMG-20261004-WA6629.jpg">
-<link rel="apple-touch-icon" href="IMG-20261004-WA6629.jpg">
+<title>Meu App no Ar!</title>
 <style>
-body{font-family:Arial;text-align:center;padding:30px;background:#f0f2f5}
-.card{background:white;padding:20px;border-radius:15px;max-width:350px;margin:auto;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
-button{background:#111;color:white;border:none;padding:12px 20px;border-radius:8px;width:100%;margin-top:10px;font-size:16px}
-input{width:100%;padding:12px;margin:10px 0;border:1px solid #ccc;border-radius:8px;box-sizing:border-box}
+body{font-family:Arial;text-align:center;padding:20px;background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
+.card{background:white;padding:30px;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);width:100%;max-width:360px}
+button{background:#111;color:white;border:none;padding:14px;border-radius:12px;width:100%;font-size:16px;margin-top:10px}
+input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ccc;box-sizing:border-box}
+#telaApp{display:none}
 </style>
 </head>
 <body>
-<div class="card">
+<div class="card" id="telaLogin">
 <h2>🚀 Meu App no Ar!</h2>
 <p>Digite seu nome para entrar</p>
-<input id="nome" placeholder="Seu nome"> 
+<input id="nome" placeholder="Seu nome">
 <button onclick="entrar()">Entrar no App</button>
-<p id="msg"></p>
+</div>
+<div class="card" id="telaApp">
+<h2 id="msg"></h2>
+<p>✅ Logado com sucesso!</p>
+<p>Seu app agora tem 2 telas.</p>
+<button onclick="sair()" style="background:#666">Sair</button>
 </div>
 <script>
 function entrar(){
-let n=document.getElementById('nome').value
-document.getElementById('msg').innerHTML='Bem-vindo, '+n+'! 🎉'
+let n=document.getElementById('nome').value;
+if(!n){alert('Digite seu nome!');return}
+document.getElementById('telaLogin').style.display='none';
+document.getElementById('telaApp').style.display='block';
+document.getElementById('msg').innerText='Bem-vindo, '+n+'! 🎉';
+}
+function sair(){
+document.getElementById('telaApp').style.display='none';
+document.getElementById('telaLogin').style.display='block';
+document.getElementById('nome').value='';
 }
 </script>
 </body>
