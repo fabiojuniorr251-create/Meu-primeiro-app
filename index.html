@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu App no Ar!</title>
+<title>Meu Primeiro App</title>
 <style>
-body{font-family:Arial;text-align:center;padding:20px;background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
-.card{background:white;padding:30px;border-radius:20px;box-shadow:0 5px 20px rgba(0,0,0,0.1);width:100%;max-width:360px}
-button{background:#111;color:white;border:none;padding:14px;border-radius:12px;width:100%;font-size:16px;margin-top:10px}
-input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ccc;box-sizing:border-box}
+body{font-family:Arial;text-align:center;padding:20px;background:#f0f2f5;margin:0}
+.card{background:white;padding:30px;border-radius:15px;max-width:400px;margin:50px auto;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+h2{color:#111}
+button{background:#111;color:white;border:none;padding:15px 20px;border-radius:10px;width:100%;font-size:16px;font-weight:bold;margin-top:15px}
+input{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;font-size:16px}
 #telaApp{display:none}
+.sucesso{color:green;font-weight:bold}
 </style>
 </head>
 <body>
@@ -20,24 +22,30 @@ input{width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid 
 <button onclick="entrar()">Entrar no App</button>
 </div>
 <div class="card" id="telaApp">
-<h2 id="msg"></h2>
-<p>✅ Logado com sucesso!</p>
-<p>Seu app agora tem 2 telas.</p>
-<button onclick="sair()" style="background:#666">Sair</button>
+<h2 id="bemvindo"></h2>
+<p class="sucesso">✅ Seu app está funcionando!</p>
+<p>Agora seu app está publicado na internet.</p>
+<button onclick="sair()">Sair</button>
 </div>
 <script>
 function entrar(){
 let n=document.getElementById('nome').value;
-if(!n){alert('Digite seu nome!');return}
+if(n==""){alert("Digite seu nome");return;}
+localStorage.setItem('nome',n);
+mostrarApp(n);
+}
+function mostrarApp(n){
 document.getElementById('telaLogin').style.display='none';
 document.getElementById('telaApp').style.display='block';
-document.getElementById('msg').innerText='Bem-vindo, '+n+'! 🎉';
+document.getElementById('bemvindo').innerText="Olá, "+n+"! 👋";
 }
 function sair(){
+localStorage.removeItem('nome');
 document.getElementById('telaApp').style.display='none';
 document.getElementById('telaLogin').style.display='block';
-document.getElementById('nome').value='';
 }
+let salvo=localStorage.getItem('nome');
+if(salvo){mostrarApp(salvo);}
 </script>
 </body>
 </html>
