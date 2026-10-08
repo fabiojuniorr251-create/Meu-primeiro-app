@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Primeiro App</title>
+<title>Meu App</title>
 <style>
 body{font-family:Arial;text-align:center;padding:20px;background:#f0f2f5;margin:0}
 .card{background:white;padding:30px;border-radius:15px;max-width:400px;margin:50px auto;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
@@ -16,15 +16,15 @@ input{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:
 </head>
 <body>
 <div class="card" id="telaLogin">
-<h2>🚀 Meu App no Ar!</h2>
+<h2>Meu App no Ar!</h2>
 <p>Digite seu nome para entrar</p>
 <input id="nome" placeholder="Seu nome">
 <button onclick="entrar()">Entrar no App</button>
 </div>
 <div class="card" id="telaApp">
 <h2 id="bemvindo"></h2>
-<p class="sucesso">✅ Seu app está funcionando!</p>
-<p>Agora seu app está publicado na internet.</p>
+<p class="sucesso">Seu app esta funcionando!</p>
+<p>Agora seu app esta publicado na internet.</p>
 <button onclick="sair()">Sair</button>
 </div>
 <script>
@@ -37,7 +37,7 @@ mostrarApp(n);
 function mostrarApp(n){
 document.getElementById('telaLogin').style.display='none';
 document.getElementById('telaApp').style.display='block';
-document.getElementById('bemvindo').innerText="Olá, "+n+"! 👋";
+document.getElementById('bemvindo').innerText="Ola, "+n+"!";
 }
 function sair(){
 localStorage.removeItem('nome');
